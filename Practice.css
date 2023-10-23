@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+  }
+html {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    background-color:#121212;
+    color:#B3B3B3;
+    margin:0;
+    position:relative;
+    top:0;
+}
+main {
+    width:80%;
+    padding: 0 20px;
+}
+section {
+    margin-bottom:30px;
+}
+p {
+    line-height:1.5;
+}
+@media (prefers-reduced-motion: no-preference) {
+    * {
+      scroll-behavior: smooth;
+    }
+  }
+
+/*picture stuff*/
+.pictures {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+.picture {
+    width: 50vh;
+    height: 50vh;
+    object-fit: cover; /*the same resolution for all pics*/
+    border-radius:10px;
+    opacity:100%;
+    transition: opacity 0.3s;
+}
+figure:hover .picture {
+    opacity:20%; /*picture opacity is reduced when figure is hovered*/
+}
+figure {
+    position:relative; /*has to be positioned so figcaption can have position:absolute*/
+}
+figcaption {
+    position:absolute; /*positioned relative to figure*/
+    top:0;
+    display:none; /*not shown unless hovered*/
+    overflow-y:auto; /*use a scrollbar, but hide unnecessary scrollbar*/
+    overflow-x:hidden;
+    max-height:50vh; /*so overflow works*/
+    padding:20px;
+}
+figure:hover figcaption {
+    display:block; /*figcaption is shown when figure is hovered*/
+}
+
+/*navbar stuff*/
+nav {
+    width:100%;
+    margin-top:0;
+    border-bottom:1px solid #B3B3B3;
+}
+@media only screen and (max-width: 768px) {
+    ul {
+        flex-direction: column;
+    }
+    li {
+        padding: 15px 10px 10px 10px !important;
+    }
+    .nav-logo {
+        background-size:contain !important;
+    }
+  }
+ul {
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:0;
+    margin: 0;
+}
+.nav-link {
+    list-style:none;
+    padding-top:15px;
+    width:100%;
+    min-height: 50px;
+    text-align:center;
+    vertical-align: middle;
+    @media (prefers-reduced-motion: no-preference) {
+        transition: 0.3s;
+    }
+}
+.nav-link:not(.nav-logo):hover {
+    background-color: #B3B3B3;
+    color:#121212;
+}
+.nav-link a, .nav-link a:active {
+    text-decoration:none;
+    color:white;
+}
+.nav-logo {
+    background-image:url(leaves.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    width:100%;
+    min-height: 50px;
+}
+
+
